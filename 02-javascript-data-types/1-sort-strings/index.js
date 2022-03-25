@@ -6,4 +6,14 @@
  */
 export function sortStrings(arr, param = 'asc') {
 
+  let sortDirection = {
+    asc: 1,
+    desc: -1
+  };
+
+  let direction = sortDirection[param];
+
+  let tmpArray = arr.slice();
+
+  return tmpArray.sort( (a, b) => a.localeCompare(b , "ru", {caseFirst: "upper"})* direction)
 }
